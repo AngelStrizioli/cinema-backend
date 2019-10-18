@@ -8,8 +8,8 @@ var app = express();
 
 //conectar BD
 //var urlBD = 'mongodb://localhost/test';
-var urlBD = "mongodb+srv://test:cinemaapis@cluster0-tcjsq.mongodb.net/test?retryWrites=true&w=majority";
-
+const urlBD = "mongodb+srv://cine:1234@cluster0-tcjsq.mongodb.net/cinema_apis?retryWrites=true&w=majority";
+            
 //opciones conexion
 var opts = {useNewUrlParser : true, connectTimeoutMS:20000};
 //importo driver

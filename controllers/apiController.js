@@ -8,9 +8,7 @@ let getPelis = (req, res) =>
     Peliculas.find(function(err,listaPelis)
     {
         //devuelvo resultado query
-        console.log("devuelvo lista")   ;
-        console.log(listaPelis); 
-        //res.status(200).send(listaPelis);
+        res.status(200).send(listaPelis);
         //si hay error
         (err)=>{
             res.status(500).send(err);
