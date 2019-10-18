@@ -21,6 +21,13 @@ router.get('/leerPelis',function(req,res)
     apiController.getPelis(req,res);
 });
 
+//endpoint para leer las salas
+router.get('/leerSalas',function(req,res)
+{
+    console.log("salas");
+    apiController.getSalas(req,res);
+});
+
 /*
 //EndPoint para leer con filtro
 router.post('/leerAgenda/?idBusqueda',function(req,res)
