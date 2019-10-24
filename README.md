@@ -7,7 +7,7 @@ Simplemente clonando el repositorio, y ejecutando luego los siguientes comandos:
 
 ```
 npm install
-npm run
+npm start
 ```
 
 Luego de esta ejecución el servidor estará escuchando en la dirección [localhost:8080](localhost:8080)
