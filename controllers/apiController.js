@@ -70,10 +70,9 @@ let getPeliByNombre = (req, res) =>
     let idBusqueda = {nombre: req.body.name}
 
     Peliculas.find(idBusqueda, function(err, listaPelis){
-        (listaPelis)=>
-        {
-            res.status(200).send(listaPelis);
-        },
+       
+        res.status(200).send(listaPelis);
+        
         (err)=>{
             res.status(500).send(err);
             console.log(err);

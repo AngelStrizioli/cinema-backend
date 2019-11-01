@@ -44,7 +44,7 @@ var port = process.env.PORT || 8080;
 app.get('/', (req, res) => res.send('Hello World with Express in Aplicaciones Interactivas'));
 
 // Use Api routes in the App
-app.use('/apiCine', apiRoutes);
+app.use('/', apiRoutes);
 
 // Launch app to listen to specified port
 app.listen(port, function () {

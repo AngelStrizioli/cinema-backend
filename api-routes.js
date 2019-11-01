@@ -5,7 +5,7 @@ let apiController = require('./controllers/apiController');
     
 
 // Set default API response
-router.get('/', function (req, res) 
+router.get('/default', function (req, res) 
 {
     res.json(
     {
@@ -31,9 +31,10 @@ router.get('/leerSalas',function(req,res)
 
 
 //EndPoint para leer con filtro
-router.post('/peli?idBusqueda',function(req,res)
+//USAR POSTMAN PARA PROBAR MASTERRON
+router.post('/filtrarpeli',function(req,res)
 {
-    console.log("leer con filtro");
+    console.log("filtrarPeli");
     apiController.getPeliByNombre(req,res);
 });
 
