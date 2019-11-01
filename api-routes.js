@@ -10,16 +10,17 @@ router.get('/', function (req, res)
     res.json(
     {
        status: 'API is Working',
-       message: 'Welcome to RESTHub crafted with love!',
+       message: 'Que onda monóculo todo viento?',
     });
 });
 
-//EndPoint para leer toda la base
+//EndPoint para lee las pelis
 router.get('/leerPelis',function(req,res)
 {
-    console.log("leer");
+    console.log("pelis");
     apiController.getPelis(req,res);
 });
+
 
 //endpoint para leer las salas
 router.get('/leerSalas',function(req,res)
@@ -28,13 +29,17 @@ router.get('/leerSalas',function(req,res)
     apiController.getSalas(req,res);
 });
 
-/*
+
 //EndPoint para leer con filtro
-router.post('/leerAgenda/?idBusqueda',function(req,res)
+router.post('/peli?idBusqueda',function(req,res)
 {
     console.log("leer con filtro");
-    apiController.getContactosById(req,res);
+    apiController.getPeliByNombre(req,res);
 });
+
+/*
+
+
 //EndPoint para insertar en la BD
 router.post('/insertContacto/Contacto',function(req,res)
 {
