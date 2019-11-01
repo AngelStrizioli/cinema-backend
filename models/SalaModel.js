@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 
 var salaSchema = new Schema({
     idSala: String,
-    pelicula: String,
-    horarios: [String]
+    filas: Number,
+    asientosXFila: Number
 });
 
 var Salas = mongoose.model('Sala', salaSchema);
