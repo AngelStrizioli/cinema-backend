@@ -31,11 +31,24 @@ router.get('/leerSalas',function(req,res)
 
 
 //EndPoint para leer con filtro
-//USAR POSTMAN PARA PROBAR MASTERRON
+//USAR POSTMAN PARA PROBAR
 router.post('/filtrarpeli',function(req,res)
 {
     console.log("filtrarPeli");
     apiController.getPeliByNombre(req,res);
+});
+
+//recibe el id de una sala y devuelve el json con el mapa de los asientos
+router.post('/getMapa',function(req,res)
+{
+    console.log("getMapa");
+    apiController.getMapaAsientos(req,res);
+});
+
+router.post('/getFunciones',function(req,res)
+{
+    console.log("getFunciones");
+    apiController.getFuncionesByPeli(req,res);
 });
 
 /*
