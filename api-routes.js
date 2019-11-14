@@ -58,6 +58,18 @@ router.post('/RegistrarUsuario/Usuario',function(req,res)
     apiController.registrarUsuario(req,res);
 });
 
+
+router.post('/guardarVenta', function(req,res){
+    console.log('guardando venta');
+    apiController.insertVenta(req,res);
+});
+
+
+router.post('/getVentasUsuario', function(req,res){
+    console.log('obteniendo ventas del usuario');
+    apiController.getVentasUsuario(req,res);
+});
+
 /*
 
 

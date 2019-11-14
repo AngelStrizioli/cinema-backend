@@ -1,6 +1,10 @@
 var Peliculas = require('../models/PeliculaModel');
 var Salas = require('../models/SalaModel');
+<<<<<<< HEAD
 var Usuarios = require('../models/UsuarioModel');
+=======
+var Ventas = require('../models/VentaModel');
+>>>>>>> 944bbff906748d0a62a1815f167aaffb04a9ed96
 
 
     
@@ -87,6 +91,50 @@ let getFuncionesByPeli = (req, res) =>
     })
 };
 
+let insertVenta = (req,res) =>
+{
+    console.log(req.body);
+    var newVenta = Ventas({
+        id: req.body.id,
+        pelicula: req.body.pelicula,
+        funcion: req.body.funcion,
+        asientos: req.body.asientos,
+        total: req.body.total,
+        usuario: req.body.usuario,
+        fecha: req.body.fecha,
+        tarjeta: req.body.tarjeta
+    });
+    newVenta.save().
+    then
+    (
+        (newVenta)=>
+        {
+            res.status(200).send(newVenta); //devuelvo resultado query       
+        },
+        (err)=>
+        { 
+            res.status(500).send(err);
+            console.log(err);
+        }
+    ) 
+};
+
+
+let getVentasUsuario = (req,res) => {
+    let idBusqueda = { usuario: req.body.username };
+
+    Ventas.find(idBusqueda, function(err,listaVentas){
+        
+        console.log(listaVentas);
+        res.status(200).send(listaVentas);
+        
+        (err)=>{
+            res.status(500).send(err);
+            console.log(err);
+        } 
+    })
+}
+
 function generateMap(sala){
     let map = [];
     let id = 1
@@ -103,6 +151,7 @@ function generateMap(sala){
     return map
 }
 
+<<<<<<< HEAD
 let registrarUsuario = (req,res) =>
 {
     console.log(req.body);
@@ -130,3 +179,6 @@ let registrarUsuario = (req,res) =>
 }
 
 module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, registrarUsuario};
+=======
+module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, insertVenta, getVentasUsuario};
+>>>>>>> 944bbff906748d0a62a1815f167aaffb04a9ed96
