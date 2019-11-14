@@ -59,3 +59,39 @@ http://localhost:8080/getMapa
 - Parámetro: id
 
 ***
+
+```
+http://localhost:8080/guardarVenta
+```
+
+- Recibe una venta con el formato detallado abajo (así debe armarse el body) y la guarda en la base de datos
+
+```js
+{
+    "id": 1,
+    "pelicula": "NombrePeli",
+    "funcion": "23-11-2019 15:30",
+    "asientos": ["23", "24"],
+    "total": 450,
+    "usuario": "usuario1",
+    "fecha": "2019-11-18T06:18:15.000+00:00",
+    "tarjeta": {
+    	"numero": "4156987845454545",
+    	"fechaVto": "02/21",
+    	"codSeg": "331",
+    	"nombre": "alberto perez de ruculacion"
+    }
+}
+```
+
+***
+
+```
+http://localhost:8080/getVentasUsuario
+```
+
+- Recibe un nombre de usuario y devuelve todas las compras que haya efectuado
+- Parámetro: username
+
+
+
