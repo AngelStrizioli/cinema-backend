@@ -1,5 +1,6 @@
 var Peliculas = require('../models/PeliculaModel');
-var Salas = require('../models/SalaModel')
+var Salas = require('../models/SalaModel');
+var Usuarios = require('../models/UsuarioModel');
 
 
     
@@ -102,4 +103,30 @@ function generateMap(sala){
     return map
 }
 
-module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli};
+let registrarUsuario = (req,res) =>
+{
+    console.log(req.body);
+    var newUsuario = Usuarios({
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        dni: req.body.dni,
+        telefono: req.body.telefono,
+        email: req.body.mail,
+        password: req.body.password
+    });
+    newUsuario.save().
+    then
+    (
+        (newUsuario)=>
+        {
+            res.status(200).send(newUsuario); //devuelvo resultado query       
+        },
+        (err)=>
+        { 
+            res.status(500).send(err);
+            console.log(err);
+        }
+    ) 
+}
+
+module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, registrarUsuario};

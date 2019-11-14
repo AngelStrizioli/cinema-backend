@@ -51,6 +51,13 @@ router.post('/getFunciones',function(req,res)
     apiController.getFuncionesByPeli(req,res);
 });
 
+//EndPoint para registrar un usuario en la BD
+router.post('/RegistrarUsuario/Usuario',function(req,res)
+{
+    console.log(req.body);
+    apiController.registrarUsuario(req,res);
+});
+
 /*
 
 
