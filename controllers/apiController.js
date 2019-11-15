@@ -1,10 +1,7 @@
 var Peliculas = require('../models/PeliculaModel');
 var Salas = require('../models/SalaModel');
-<<<<<<< HEAD
 var Usuarios = require('../models/UsuarioModel');
-=======
 var Ventas = require('../models/VentaModel');
->>>>>>> 944bbff906748d0a62a1815f167aaffb04a9ed96
 
 
     
@@ -151,7 +148,6 @@ function generateMap(sala){
     return map
 }
 
-<<<<<<< HEAD
 let registrarUsuario = (req,res) =>
 {
     console.log(req.body);
@@ -178,7 +174,4 @@ let registrarUsuario = (req,res) =>
     ) 
 }
 
-module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, registrarUsuario};
-=======
-module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, insertVenta, getVentasUsuario};
->>>>>>> 944bbff906748d0a62a1815f167aaffb04a9ed96
+module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, insertVenta, getVentasUsuario, registrarUsuario};
