@@ -93,5 +93,14 @@ http://localhost:8080/getVentasUsuario
 - Recibe un nombre de usuario y devuelve todas las compras que haya efectuado
 - Parámetro: username
 
+***
 
+```sh
+http://localhost:8080/comprobarUsuario
+```
 
+- Recibe el email y la password ingresada por el usuario y verifica si estos datos coinciden con un usuario válido de la base de datos.
+- Parámetros: email y password
+- Devuelve: true si los datos son correctos, false si son incorrectos (no encontró el usuario o la password es incorrecta).
+
+***

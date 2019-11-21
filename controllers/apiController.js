@@ -106,7 +106,7 @@ let insertVenta = (req,res) =>
     (
         (newVenta)=>
         {
-            res.status(200).send(newVenta); //devuelvo resultado query       
+            res.status(201).send(newVenta); //devuelvo resultado query       
         },
         (err)=>
         { 
@@ -164,7 +164,7 @@ let registrarUsuario = (req,res) =>
     (
         (newUsuario)=>
         {
-            res.status(200).send(newUsuario); //devuelvo resultado query       
+            res.status(201).send(newUsuario); //devuelvo resultado query       
         },
         (err)=>
         { 
@@ -174,4 +174,31 @@ let registrarUsuario = (req,res) =>
     ) 
 }
 
-module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, insertVenta, getVentasUsuario, registrarUsuario};
+let comprobarUsuario = (req, res) => {
+
+    let idBusqueda = {email: req.body.email}
+
+    Usuarios.find(idBusqueda, function(err, listaUsuarios){
+        if(listaUsuarios.length === 0){
+            res.status(400).send(false);
+        }else{
+   
+        if(listaUsuarios[0].password === req.body.password){
+            res.status(200).send(true);
+        }
+        else{
+            res.status(400).send(false);
+        }
+    }
+        (err)=>
+        { 
+            res.status(500).send(err);
+            console.log(err);
+        }
+        
+    })
+
+
+}
+
+module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, insertVenta, getVentasUsuario, registrarUsuario, comprobarUsuario};

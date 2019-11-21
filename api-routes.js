@@ -70,6 +70,11 @@ router.post('/getVentasUsuario', function(req,res){
     apiController.getVentasUsuario(req,res);
 });
 
+router.post('/comprobarUsuario', function(req,res){
+    console.log('comprobando el login del usuario');
+    apiController.comprobarUsuario(req,res);
+})
+
 /*
 
 
