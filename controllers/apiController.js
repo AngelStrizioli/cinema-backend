@@ -184,7 +184,7 @@ let comprobarUsuario = (req, res) => {
         }else{
    
         if(listaUsuarios[0].password === req.body.password){
-            res.status(200).send(true);
+            res.status(200).send(listaUsuarios[0]);
         }
         else{
             res.status(400).send(false);
