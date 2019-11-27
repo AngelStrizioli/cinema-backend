@@ -3,20 +3,23 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var tarjetaSchema = new Schema({
-    numero: String,
-    fechaVto: String,
-    codSeg: String,
-    nombre: String
+    cvc: String,
+    expiry: String,
+    issuer: String,
+    name: String,
+    number: String
 });
 
 var ventaSchema = new Schema({
-    id: Number,
+    fecha: String,
+    usuarioNombre: String,
+    usuarioApellido: String,
+    usuarioEmail: String,
     pelicula: String,
-    funcion: String,
+    sala: String,
+    funcion: Date,
     asientos: [String],
     total: Number,
-    usuario: String,
-    fecha: Date,
     tarjeta: tarjetaSchema
 });
 

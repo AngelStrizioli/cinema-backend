@@ -56,7 +56,7 @@ http://localhost:8080/getMapa
 ```
 
 - Recibe el id de una sala y devuelve el mapa de asientos listo para insertar en el componente react-seat-picker
-- Parámetro: id
+- Parámetro: id de la sala y array de asientos ocupados (body.asientosOcupados)
 
 ***
 

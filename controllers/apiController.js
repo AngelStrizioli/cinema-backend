@@ -41,10 +41,11 @@ let getSalas = (req, res) =>
 let getMapaAsientos = (req, res) =>
 {
     let idBusqueda = {idSala: req.body.id}
-
+    asientos = req.body.asientosOcupados;
+    console.log(asientos);
     Salas.find(idBusqueda, function(err, salas){
         console.log(salas);
-        res.status(200).send(generateMap(salas[0]));
+        res.status(200).send(generateMap(salas[0], asientos));
 
         (err)=>{
             res.status(500).send(err);
@@ -92,13 +93,15 @@ let insertVenta = (req,res) =>
 {
     console.log(req.body);
     var newVenta = Ventas({
-        id: req.body.id,
+        fecha: req.body.fecha,
+        usuarioNombre: req.body.usuarioNombre  ,
+        usuarioApellido: req.body.usuarioApellido,
+        usuarioEmail: req.body.usuarioEmail,
         pelicula: req.body.pelicula,
+        sala: req.body.sala,
         funcion: req.body.funcion,
         asientos: req.body.asientos,
         total: req.body.total,
-        usuario: req.body.usuario,
-        fecha: req.body.fecha,
         tarjeta: req.body.tarjeta
     });
     newVenta.save().
@@ -132,20 +135,32 @@ let getVentasUsuario = (req,res) => {
     })
 }
 
-function generateMap(sala){
+function arrayIncludes(array, numero){
+    let resultado = false;
+    for(let i = 0; i<array.length; i++){
+        if(array[i]==numero){
+           resultado = true;
+        }
+    }
+    return resultado;
+}
+
+function generateMap(sala, asientosOcupados){
     let map = [];
     let id = 1
     for(let i = 0; i < sala.filas; i++){
         let row = [];
         for(let j=0; j < sala.asientosXFila; j++){
-            let asiento = {id: id, number: j+1};
+            let asiento = {id: id, number: j+1, isReserved: false};
+            if(arrayIncludes(asientosOcupados, asiento.id))
+              asiento.isReserved=true;
             row.push(asiento);
             id++;
         }
         map.push(row);
     }
     console.log(map);
-    return map
+    return map;
 }
 
 let registrarUsuario = (req,res) =>
