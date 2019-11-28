@@ -145,7 +145,7 @@ let insertVenta = (req,res) =>
 
 
 let getVentasUsuario = (req,res) => {
-    let idBusqueda = { usuario: req.body.username };
+    let idBusqueda = { usuarioEmail: req.body.email };
 
     Ventas.find(idBusqueda, function(err,listaVentas){
         
