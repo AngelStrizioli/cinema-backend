@@ -171,7 +171,7 @@ let registrarUsuario = (req,res) =>
         apellido: req.body.apellido,
         dni: req.body.dni,
         telefono: req.body.telefono,
-        email: req.body.mail,
+        email: req.body.email,
         password: req.body.password
     });
     newUsuario.save().

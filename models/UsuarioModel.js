@@ -7,7 +7,7 @@ var UsuarioSchema = new Schema({
     apellido:String,
     dni:String,
     telefono:String,
-    email:String,
+    email: String,
     password:String
 });
 
