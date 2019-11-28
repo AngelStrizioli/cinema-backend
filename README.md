@@ -104,3 +104,12 @@ http://localhost:8080/comprobarUsuario
 - Devuelve: los datos del usuario si el login es correcto, false no encontró el usuario o la password es incorrecta.
 
 ***
+
+```
+http://localhost:8080/ocuparAsientos
+```
+
+- Recibe el id de una funcion y los asientos que hayan sido vendidos y actualiza la base de datos con los mismos
+- Parámetros: id, asientos
+
+***

@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var funcionSchema = new Schema({
+    id: String,
     fecha: Date,
     agotado: Boolean,
     asientosOcupados: [String],

@@ -89,8 +89,32 @@ let getFuncionesByPeli = (req, res) =>
     })
 };
 
+let ocuparAsientos = (req, res) =>
+{
+   
+    //console.log(idBusqueda);
+
+    //db.movies.update({'seasons.episodes.videos._id': data._id}, {$push: {'seasons.0.episodes.0.videos.$.reports': data.details}})
+
+
+    Peliculas.updateOne({'funciones.id': req.body.id}, {"$push": {"funciones.$.asientosOcupados": req.body.asientos}}, function(err, respuesta){
+        console.log(respuesta);
+        res.status(200).send(respuesta);
+        
+        (err)=>{
+            res.status(500).send(err);
+            console.log(err);
+        } 
+    })
+
+}
+
+
+
 let insertVenta = (req,res) =>
 {
+
+    
     console.log(req.body);
     var newVenta = Ventas({
         fecha: req.body.fecha,
@@ -216,4 +240,4 @@ let comprobarUsuario = (req, res) => {
 
 }
 
-module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, insertVenta, getVentasUsuario, registrarUsuario, comprobarUsuario};
+module.exports = {getPelis, getSalas, getMapaAsientos, getPeliByNombre, getFuncionesByPeli, insertVenta, getVentasUsuario, registrarUsuario, comprobarUsuario, ocuparAsientos};

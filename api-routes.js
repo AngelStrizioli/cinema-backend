@@ -75,6 +75,11 @@ router.post('/comprobarUsuario', function(req,res){
     apiController.comprobarUsuario(req,res);
 })
 
+
+router.post('/ocuparAsientos', function(req,res){
+    console.log('ocupando asientos');
+    apiController.ocuparAsientos(req,res);
+})
 /*
 
 
