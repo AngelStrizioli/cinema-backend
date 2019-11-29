@@ -7,6 +7,7 @@ var funcionSchema = new Schema({
     fecha: Date,
     agotado: Boolean,
     asientosOcupados: [String],
+    idioma: String,
     sala: Number
 });
 
